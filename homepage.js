@@ -8,12 +8,10 @@ var handlebars = require("express-handlebars")
 app.engine("handlebars", handlebars.engine);
 app.set("view engine", "handlebars");
 
-app.set("port", process.env.PORT || 3002);
+app.set("port", process.env.PORT || 3000);
 
 app.get("/", function(req, res){
 	res.render("home");
-//	res.type("text/plain");
-//	res.send("Meadowlark Travel");
 });
 
 app.get("/datetime", function(req, res){
@@ -23,8 +21,6 @@ app.get("/datetime", function(req, res){
 app.get("/about", function(req, res){
 
 	res.render("about");
-//	res.type("text/plain");
-//	res.send("About Meadowlark Travel");
 });
 
 app.use(express.static(__dirname + "/public"));

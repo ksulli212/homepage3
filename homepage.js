@@ -17,8 +17,47 @@ app.use(function(req, res, next){
 });
 
 app.get("/", function(req, res){
-	res.render("home");
+	res.render("home", {
+	courses: [
+        {
+                code:"CMPS 361",
+                description: "Web Application Development",
+                instructor: "Mark Voortman",
+                credits:3
+        },
+     	{
+                code:"CMPS 363",
+                description: "Digital Security",
+                instructor: "Brian Bolsinger",
+                credits:3
+        },
+        {
+                 code:"SOC 260",
+                description: "Japanese Culture",
+                instructor: "Robert Fessler",
+                credits:3
+        },
+     	{
+                 code:"BMGT 221",
+                description: "WI-Business Comm & Research",
+                instructor: "John Lawrence",
+                credits:3
+	},
+
+     	{
+                code:"BMGT 300",
+                description: "Corporate Finance",
+                instructor: "Joseph DeFazio",
+                credits:3
+        },
+
+]
+	
 });
+	
+});
+
+
 
 app.get("/datetime", function(req, res){
 	res.render("datetime", {datetime: new Date().toString()});

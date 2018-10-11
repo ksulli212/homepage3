@@ -1,1 +1,8 @@
 <h1> Welcome to my page, my name is Katherine Sullivan</h1>
+
+<table>
+<tr><td>Course code</td><td>Description</td><td>Instructor</td><td>Credits</td></tr>
+	
+{{#each courses}}
+	<tr><td>{{code}}</td><td>{{description}}</td><td>{{instructor}}</td><td>{{credits}}</td></tr>
+{{/each}}

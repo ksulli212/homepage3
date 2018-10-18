@@ -16,6 +16,8 @@ app.use(function(req, res, next){
 	next();
 });
 
+app.use(require("body-parser").urlencoded({extended: true }));
+
 app.get("/", function(req, res){
 	res.render("home", {
 	courses: [
@@ -69,6 +71,26 @@ app.get("/about", function(req, res){
 	pageTestScript: "/qa/tests-about.js"
 	});
 });
+
+app.get("/contact", function(req, res){
+	res.render("contact", {csrf: "CSRF token goes here"});
+});
+
+app.post("/process", function(req, res){
+        if(req.xhr || req.accepts("json,html")==="json"){
+        console.log(JSON.stringify(req.body));
+res.send({
+
+        success: true
+         });
+}
+else{
+
+res.redirect(303,"/thank-you");
+}
+
+});
+
 
 app.get("/header", function(req, res){
 	res.set("Content-Type", "text/plain");
